@@ -35,7 +35,7 @@
            :current-page="currentPage"
            @pagechanged="onPageChange"></Pagination>
 
-        <router-link to="/addArticle" tag="button" class="rounded-button">+</router-link>
+        <router-link to="/article/add" tag="button" class="rounded-button">+</router-link>
     </div>
 </template>
 

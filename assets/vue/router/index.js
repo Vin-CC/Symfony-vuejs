@@ -11,7 +11,7 @@ let router = new VueRouter({
     mode: 'history',
     routes: [
         { path: '/home', component: Home },
-        { path: '/addArticle', component: AddArticle},
+        { path: '/article/add', component: AddArticle},
         { path: '/article/:id', component: DetailArticle, name: 'detailArticle'},
         { path: '*', redirect: '/home' }
     ],
