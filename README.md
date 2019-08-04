@@ -3,6 +3,7 @@ Application réalisée dans le cadre d'un test technique
 
 ## Contenu
 * [**Ennoncé**](#ennoncé)
+* [**Requis**](#requis)
 * [**Installation**](#installation)
 * [**Utilisation**](#utilisation)
   * [**API**](#api)
@@ -34,6 +35,13 @@ Techno à utiliser : Symfony, VueJs
 Un plus serait d'utiliser docker.
 
 En terme de design, il n'y a aucune contrainte, il faut juste que ce soit simple à lire et minimaliste
+
+## Requis
+Pour faire fonctionner l'application il faut avoir installé:
+
+[https://www.docker.com/](docker)
+
+[https://docs.docker.com/compose/install/](docker-compose)
 
 ## Installation
 Vous pouvez si vous le souhaitez, modifier le .env (situé dans apps/symfony-app) et notamment cette ligne (en sachant que ce sont les mêmes informations que dans la partie 'db' dans le docker-compose.yml):
