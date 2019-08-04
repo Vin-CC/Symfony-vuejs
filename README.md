@@ -36,50 +36,35 @@ Un plus serait d'utiliser docker.
 En terme de design, il n'y a aucune contrainte, il faut juste que ce soit simple à lire et minimaliste
 
 ## Installation
-Modifier le .env et notamment cette ligne:
+Modifier le .env (situé dans apps/symfony-app) et notamment cette ligne:
 ```
-DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
+ DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
 ```
 - db_user = user de la bdd
 - db_password = mot de passe de l'utilisateur
 - db_name = le nom de la bdd
 
-Installer les dépendances Composer:
+Puis lancer :
 ```
-composer install
+ docker-compose build 
 ```
-Installer les dépendences js
-```
-npm install
-```
+Cette commande va construire les containers demandés dans “docker-compose.yml”.
 
-Pour créer la base:
+Une fois l'application construite. Vous pouvez lancer:
+ docker-compose up -d
 ```
-php bin/console doctrine:database:create
+Pour arrêter les containers utilisez:
 ```
-et les tables:
+ docker-compose stop
 ```
-php bin/console doctrine:schema:create
+Maintenant vous pouvez lancer les commandes Symfony pour construire l'application sur les containers Docker:
 ```
-
-Pour ajouter des données:
+ docker-compose exec php composer install 
+ docker-compose exec php php bin/console doctrine:schema:create
+ docker-compose exec php php bin/console doctrine:fixtures:load
+ docker-compose exec php php bin/console assets:install –symlink public/
 ```
-php bin/console doctrine:fixtures:load
-```
-
-Pour build le front
-```
-yarn encore dev
-```
-
-Pour ensuite démarrer le serveur compris avec Symfony
-```
-symfony server:start
-```
-Et pour l'arrêter
-```
-symfony server:stop
-```
+L'application est maintenant en marche et disponible sur : [http://localhost/](http://localhost/)
 
 ## Utilisation
 ### API
