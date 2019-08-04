@@ -51,13 +51,14 @@ Puis lancer :
 Cette commande va construire les containers demandés dans “docker-compose.yml”.
 
 Une fois l'application construite. Vous pouvez lancer:
+```
  docker-compose up -d
 ```
 Pour arrêter les containers utilisez:
 ```
  docker-compose stop
 ```
-Maintenant vous pouvez lancer les commandes Symfony pour construire l'application sur les containers Docker:
+Maintenant vous pouvez lancer les commandes Symfony pour construire l'application sur les containers Docker :
 ```
  docker-compose exec php composer install 
  docker-compose exec php php bin/console doctrine:schema:create
