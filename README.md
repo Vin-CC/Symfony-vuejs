@@ -36,7 +36,7 @@ Un plus serait d'utiliser docker.
 En terme de design, il n'y a aucune contrainte, il faut juste que ce soit simple à lire et minimaliste
 
 ## Installation
-Modifier le .env (situé dans apps/symfony-app) et notamment cette ligne (en sachant que ce sont les mêmes informations que dans le docker-compose.yml, dans la partie 'db'):
+Vous pouvez si vous le souhaitez, modifier le .env (situé dans apps/symfony-app) et notamment cette ligne (en sachant que ce sont les mêmes informations que dans la partie 'db' dans le docker-compose.yml):
 ```
  DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
 ```
