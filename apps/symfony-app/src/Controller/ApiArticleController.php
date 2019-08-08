@@ -10,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\Annotations as Rest;
-//use Symfony\Component\Serializer\SerializerInterface;
 use JMS\Serializer\SerializerInterface;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -51,18 +50,12 @@ final class ApiArticleController  extends AbstractFOSRestController
      */
     public function getAllArticles(PaginatorInterface $paginator, Request $request): JsonResponse
     {
-
-        //$articleEntities = $this->getDoctrine()->getRepository(Article::class)->findBy([], ['modification' => 'DESC']);
-        //$data = $this->serializer->serialize($articleEntities, 'json');
-
         $articleEntities = $paginator->paginate(
             $this->repository->findAllQuery(),
             $request->query->getInt('page', 1),
             4
         );
-        //print_r($articleEntities);
-        //throw new NotFoundHttpException(sprintf("resultat '%s'", $articleEntities));
-        //$articleEntities = $this->getDoctrine()->getRepository(Article::class)->findBy([], ['modification' => 'DESC']);
+        
         $data = $this->serializer->serialize($articleEntities, 'json');
 
         return new JsonResponse($data, 200, [], true);
