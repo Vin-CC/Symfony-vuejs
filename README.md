@@ -54,25 +54,32 @@ Vous pouvez si vous le souhaitez, modifier le .env (situé dans apps/symfony-app
 
 Puis lancer :
 ```
+ cd Symfony-vuejs/
  docker-compose build 
 ```
+
 Cette commande va construire les containers demandés dans “docker-compose.yml”.
+
 
 Une fois l'application construite. Vous pouvez lancer:
 ```
  docker-compose up -d
 ```
+
 Pour arrêter les containers utilisez:
 ```
  docker-compose stop
 ```
+
 Maintenant vous pouvez lancer les commandes Symfony pour construire l'application sur les containers Docker :
 ```
  docker-compose exec php composer install 
  docker-compose exec php php bin/console doctrine:schema:create
  docker-compose exec php php bin/console doctrine:fixtures:load
 ```
+
 L'application est maintenant en marche et disponible sur : [http://localhost/](http://localhost/)
+
 
 ## Utilisation
 ### API
